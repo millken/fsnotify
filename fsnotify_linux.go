@@ -46,6 +46,10 @@ func (e *FileEvent) IsDir() bool {
 	return (e.mask&IN_ISDIR) == IN_ISDIR
 }
 
+func (e *FileEvent) Mask() uint32 {
+	return e.mask
+}
+
 type watch struct {
 	wd    uint32 // Watch descriptor (as returned by the inotify_add_watch() syscall)
 	flags uint32 // inotify flags of this watch (see inotify(7) for the list of valid flags)
